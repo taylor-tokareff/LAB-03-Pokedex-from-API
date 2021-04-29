@@ -5,12 +5,12 @@ export default class PokemonList extends Component {
 
   render() {
 
-    const pokemon = this.props.pokemon;
+    const { pokemon } = this.props;
 
     return (
       <ul className="PokemonList">
         {pokemon.map(pokemon => (
-          <PokemonItem key={pokemon.name} pokemon={pokemon} />
+          <PokemonItem key={pokemon.pokebase} pokemon={pokemon} />
         ))}
       </ul>
     );
