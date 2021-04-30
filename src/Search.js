@@ -11,7 +11,7 @@ export default class Search extends Component {
     this.setState({ search: target.value });
   }
 
-  handleSearchChange = ({ target }) => {
+  handleDirectionChange = ({ target }) => {
     this.setState({ ascOrDesc: target.value });
   }
 
@@ -22,8 +22,8 @@ export default class Search extends Component {
 
 
   render() {
-    const { search } = this.state;
-
+    const { search, ascOrDesc } = this.state;
+    console.log(search);
     return (
       <form className="Search" onSubmit={this.handleSubmit}>
 
@@ -33,11 +33,11 @@ export default class Search extends Component {
           onChange={this.handleSearchChange}
         />
 
-        <button>Search</button>
+
 
         <select name="ascOrDesc"
           value={ascOrDesc}
-          onChange={this.handleSearchChange}>
+          onChange={this.handleDirectionChange}>
 
           <option value="">sort...</option>
           <option value="asc">Ascending</option>
@@ -47,6 +47,7 @@ export default class Search extends Component {
         </select>
 
 
+        <button>Search</button>
       </form>
     );
   }

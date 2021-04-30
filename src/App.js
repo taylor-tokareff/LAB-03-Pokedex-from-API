@@ -26,7 +26,7 @@ class App extends Component {
       ascOrDesc,
 
     } = this.state;
-
+    console.log(ascOrDesc);
     this.setState({ loading: true });
 
     try {
@@ -48,9 +48,9 @@ class App extends Component {
     }
   }
 
-  handleSearch = ({ search }) => {
-    this.setState({ search: search }, () =>
-      this.fetchPokemon(search));
+  handleSearch = ({ search, ascOrDesc }) => {
+    this.setState({ search: search, ascOrDesc: ascOrDesc }, () =>
+      this.fetchPokemon(search, ascOrDesc));
 
   }
 
