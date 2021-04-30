@@ -14,7 +14,7 @@ class App extends Component {
     pokebase: [],
     loading: false,
     search: '',
-    // page: 1
+    ascOrDesc: '',
   }
 
   componentDidMount() {
@@ -22,8 +22,9 @@ class App extends Component {
   }
 
   async fetchPokemon() {
-    const { search
-      // , page
+    const { search,
+      ascOrDesc,
+
     } = this.state;
 
     this.setState({ loading: true });
@@ -31,8 +32,10 @@ class App extends Component {
     try {
       const response = await request
         .get(POKEMON_API_URL)
-        .query({ pokebase: search });
-      // .query({ page: page });
+        .query({ pokemon: search })
+        .query({ sort: 'pokemon' })
+        .query({ direction: ascOrDesc });
+
 
       this.setState({ pokebase: response.body.results });
       console.log(response.body.results);
